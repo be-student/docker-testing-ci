@@ -9,13 +9,13 @@ before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t presentsong/docker-react-app -f Dockerfile.dev .
 
-script:
-  - docker run -e CI=true presentsong/docker-react-app npm run test -- --coverage
+# script:
+#   - docker run -e CI=true presentsong/docker-react-app npm run test -- --coverage
 
 deploy:
   edge: true
   provider: elasticbeanstalk
-  region: ap-northeast-2
+  region: us-east-1
   app: docker-react-app
   env: DockerReactApp-env
   bucket_name: elasticbeanstalk-us-east-1-355900306310
